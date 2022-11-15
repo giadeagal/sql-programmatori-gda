@@ -30,7 +30,15 @@ GROUP BY PR.codice
 
 /* 4. Calcolare le coppie dei codici di programmatori che sono stati coautori di almeno un programma scritto in Python. */
 
+
 /* 5. Calcolare il codice ed il nome dei programmatori che hanno scritto solo programmi Java. */
+SELECT PR.codice, PR.nome
+FROM programmatore AS PR 
+    JOIN autore AS A  
+        ON PR.codice = A.codice 
+    JOIN programma AS PM 
+        ON PM.id = A.id
+WHERE PM.linguaggio = 'Java'
 
 /* 6. Per ogni programmatore e per ogni anno calcolare il numero di programmi scritti da quel programmatore in quell’anno, mostrando codice del programmatore, anno e numero di programmi scritti. */
 
